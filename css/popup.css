@@ -1,0 +1,36 @@
+body {
+    width: 700px;
+    background-color: white;
+    font-family: Poppins;
+    color:rgb(65, 83, 100);
+    padding:30px;
+  }
+
+#idn-logo{
+  width: 200px;
+}
+
+.icon{
+  width:32px;
+}
+
+.tenanticon {
+  max-width:240px;
+  max-height:32px;
+}
+
+  ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+    margin: 1rem 0;
+  }
+  
+  li {
+    padding: 0.25rem;
+  }
+  li:nth-child(odd) {
+    background: #0071ce;
+  }
+  li:nth-child(even) {
+    background: #54c0e8;
+  }

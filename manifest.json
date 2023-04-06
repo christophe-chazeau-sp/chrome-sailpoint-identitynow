@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "SailPoint IdentityNow",
+  "version": "0.1",
+  "icons": {
+    "16": "images/spidn-16.png",
+    "32": "images/spidn-32.png",
+    "48": "images/spidn-48.png",
+    "128": "images/spidn-128.png"
+  },
+  "host_permissions": [
+    "https://*.identitynow.com/*",
+    "https://*.identitynow-demo.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "contextMenus",
+    "webRequest",
+    "tabs",
+    "clipboardWrite",
+    "notifications",
+    "scripting"
+  ]
+}
