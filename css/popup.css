@@ -34,3 +34,9 @@ body {
   li:nth-child(even) {
     background: #54c0e8;
   }
+
+#main-table tr:hover{
+  border-color:  rgba(82,168,236,.8);
+  box-shadow: 0 0px 0px rgba(82,168,236,.8) inset, 0 0 8px rgba(82,168,236,.8);
+  outline: 0 none;
+}
