@@ -1,10 +1,10 @@
 # IdentityNow Chrome Extension.
 
-**NOT developped, maintained or supported by SailPoint**
+> **NOT developped, maintained or supported by SailPoint**
 
 The idea of this extension is very simple :
 
-*Provide the ability to retrieve access tokens from browser opened sessions
+**Provide the ability to retrieve access tokens from browser opened sessions**
 
 It is basically a GUI replacement for 
 1. Opening the https://{tenantURL}/ui/session URL
