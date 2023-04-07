@@ -24,27 +24,18 @@ function getAPIURL(url) {
 function grabTenantInfo() {
   try {
     slptGobals = JSON.parse(document.getElementById("slpt-globals-json").textContent);
-    orgStandardLogoUrl = slptGobals.orgStandardLogoUrl;
-    orgProductName = slptGobals.orgProductName;
-    userName = slptGobals.userInfo.displayName;
-    tenantInfo = {
-      orgStandardLogoUrl: orgStandardLogoUrl,
-      orgProductName: orgProductName,
-      userName: userName
-    };
 
     tenantInfo = {
-      orgStandardLogoUrl: orgStandardLogoUrl,
-      orgProductName: orgProductName,
-      userName: userName
+      orgStandardLogoUrl: slptGobals.orgStandardLogoUrl,
+      orgProductName: slptGobals.orgProductName,
+      userName: slptGobals.userInfo.displayName
     };
+    console.log(tenantInfo);
 
-    console.log("IdentityNow tenant Info is : " + JSON.stringify(tenantInfo));
     return tenantInfo;
 
   } catch (exceptionVar) {
     console.log("IdentityNow Extension : There was an error retrieving tenant info : " + exceptionVar);
-    return null;
   }
 }
 
@@ -102,8 +93,14 @@ for (const tab of tabs) {
     func: grabTenantInfo
   };
 
+  // Build relevant IDN data from tab data
+  let idnMatches = tab.url.match(idn_regexp);
+  let idnTenant = idnMatches[2];
+  let idnUrl = idnMatches[1];
+
   // Get Da Logo from the tab
   chrome.scripting.executeScript(getTenantInfoFromTab)
+    // Everything went smoothly : we have tenantInfo
     .then((result) => {
 
       // retrieve tenant info
@@ -111,10 +108,12 @@ for (const tab of tabs) {
 
       // Clone the row
       const element = template.content.firstElementChild.cloneNode(true);
-      // Build relevant IDN data from tab data
-      let idnMatches = tab.url.match(idn_regexp);
-      let idnTenant = idnMatches[2];
-      let idnUrl = idnMatches[1];
+
+      //Set the row id to the tenant name
+      element.id = idnTenant;
+
+      // Set row id with the tenant
+      element.setAttribute("data-idnurl", idnTenant);
 
       // Set Icon
       element.querySelector(".tenanticon").src = tenantInfo.orgStandardLogoUrl;
@@ -122,7 +121,9 @@ for (const tab of tabs) {
       // Set Tenant Name
       element.querySelector(".idntenant").textContent = tenantInfo.orgProductName;
       // Set URL
-      //element.querySelector(".idnurl").textContent = idnUrl;
+      element.querySelector(".idnurl").textContent = idnUrl;
+      // Set User
+      element.querySelector(".idnuser").textContent = tenantInfo.userName;
 
       // Create the "Access Token" Button
       let button_access_token = element.querySelector(".get_access_token");
@@ -146,10 +147,30 @@ for (const tab of tabs) {
               () => { console.error(); ("Error while clearing clipboard") },
             )
 
+          }).catch(e => {
+            console.log(e);
           });
-      });
-
+      })
       // Add this to the main table
       mainTable.append(element);
-    });
+
+      // Things went wrong
+    }).catch(e => {
+      /* in case one would want to display problematic tenant, the code is here
+      // Clone the row
+      const element = template.content.firstElementChild.cloneNode(true);
+
+      //Set the row id to the tenant name
+      element.id = idnTenant;
+      element.setAttribute("class","errorTenant") ;
+
+      // Set row id with the tenant
+      element.setAttribute("data-idnurl", idnTenant);
+
+      // Set URL
+      element.querySelector(".idnurl").textContent = idnUrl;
+      mainTable.append(element);
+      */
+
+    });;
 }

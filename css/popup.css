@@ -19,24 +19,11 @@ body {
   max-height:32px;
 }
 
-  ul {
-    list-style-type: none;
-    padding-inline-start: 0;
-    margin: 1rem 0;
-  }
-  
-  li {
-    padding: 0.25rem;
-  }
-  li:nth-child(odd) {
-    background: #0071ce;
-  }
-  li:nth-child(even) {
-    background: #54c0e8;
-  }
-
 #main-table tr:hover{
   border-color:  rgba(82,168,236,.8);
   box-shadow: 0 0px 0px rgba(82,168,236,.8) inset, 0 0 8px rgba(82,168,236,.8);
-  outline: 0 none;
+}
+
+.errorTenant{
+  background-color: rgb(240, 216, 208);
 }
