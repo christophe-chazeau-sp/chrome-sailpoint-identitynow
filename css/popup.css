@@ -14,13 +14,18 @@ body {
   width:32px;
 }
 
+.icon:hover {
+  border-color:  rgba(47, 10, 54,.8);
+  box-shadow: 0 0px 0px rgba(47, 10, 54,.8) inset, 0 0 8px rgba(47, 10, 54,.8);
+}
+
 .tenanticon {
   max-width:240px;
   max-height:32px;
 }
 
 #main-table tr:hover{
-  border-color:  rgba(82,168,236,.8);
+  border-color:  rgba(82,168,236, 0.8);
   box-shadow: 0 0px 0px rgba(82,168,236,.8) inset, 0 0 8px rgba(82,168,236,.8);
 }
 
