@@ -11,22 +11,28 @@ body {
 }
 
 .icon{
-  width:32px;
+  width:48px;
+  filter: grayscale(100%) ;
+  -webkit-transition : -webkit-filter 1s ease-in-out;
+  transition : -webkit-filter 1s ease-in-out;
 }
 
 .icon:hover {
-  border-color:  rgba(47, 10, 54,.8);
-  box-shadow: 0 0px 0px rgba(47, 10, 54,.8) inset, 0 0 8px rgba(47, 10, 54,.8);
+  filter: grayscale(0%) ;
+  -webkit-transition : -webkit-filter 1s ease-in-out;
+  transition : -webkit-filter 1s ease-in-out;
+  cursor:pointer;
 }
 
 .tenanticon {
   max-width:240px;
-  max-height:32px;
+  max-height:48px;
 }
 
 #main-table tr:hover{
   border-color:  rgba(82,168,236, 0.8);
   box-shadow: 0 0px 0px rgba(82,168,236,.8) inset, 0 0 8px rgba(82,168,236,.8);
+  background-color: #f4f6f8;
 }
 
 .errorTenant{

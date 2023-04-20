@@ -20,15 +20,23 @@ function getAPIURL(url) {
   return url.replace("identitynow", "api.identitynow");
 }
 
-// Function injected in the tenant page just to info
+// Function injected in the tenant page just to get info
 function grabTenantInfo() {
   try {
-    slptGobals = JSON.parse(document.getElementById("slpt-globals-json").textContent);
+
+    // the script id=slpt-navigation-json contains data we want
+    slptNavigation = JSON.parse(document.getElementById("slpt-navigation-json").textContent);
+    // Tenant Name is retrieved from the page title
+    tenantName = document.querySelector("title").textContent;
+    // username is retrieved from the slpt-navigation-json script
+    userName = slptNavigation.default.filter(el => el.id === "slpt-nav-account")[0].label;
+    // logo is retrieved from the slpt-navigation-json script
+    logoUrl = slptNavigation.navLogo;
 
     tenantInfo = {
-      orgStandardLogoUrl: slptGobals.orgStandardLogoUrl,
-      orgProductName: slptGobals.orgProductName,
-      userName: slptGobals.userInfo.displayName
+      orgStandardLogoUrl: logoUrl,
+      orgProductName: tenantName,
+      userName: userName
     };
     console.log(tenantInfo);
 
