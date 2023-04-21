@@ -11,6 +11,8 @@ const tabs = await chrome.tabs.query({
 const template = document.getElementById("template");
 // Get the main table
 const mainTable = document.querySelector("#main-table");
+// Declare a map of elements in order to manage potential duplicates (several tabs on the same tenant)
+const tenantsMap = new Map();
 
 
 
@@ -38,7 +40,6 @@ function grabTenantInfo() {
       orgProductName: tenantName,
       userName: userName
     };
-    console.log(tenantInfo);
 
     return tenantInfo;
 
@@ -107,7 +108,7 @@ for (const tab of tabs) {
   let idnUrl = idnMatches[1];
 
   // Get Da Logo from the tab
-  chrome.scripting.executeScript(getTenantInfoFromTab)
+  await chrome.scripting.executeScript(getTenantInfoFromTab)
     // Everything went smoothly : we have tenantInfo
     .then((result) => {
 
@@ -159,8 +160,9 @@ for (const tab of tabs) {
             console.log(e);
           });
       })
-      // Add this to the main table
-      mainTable.append(element);
+      // Add this to the hash
+      // the tenant name is used as a key to avoid duplicates
+      tenantsMap.set(tenantInfo.orgProductName,element) ;
 
       // Things went wrong
     }).catch(e => {
@@ -181,4 +183,8 @@ for (const tab of tabs) {
       */
 
     });;
+
+
 }
+// add our map of elements to the main table.
+tenantsMap.forEach( (value,key) => mainTable.append(value));
