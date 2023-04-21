@@ -161,8 +161,8 @@ for (const tab of tabs) {
           });
       })
       // Add this to the hash
-      // the tenant name is used as a key to avoid duplicates
-      tenantsMap.set(tenantInfo.orgProductName,element) ;
+      // the idnUrl is used as a key to avoid duplicates
+      tenantsMap.set(idnUrl,element) ;
 
       // Things went wrong
     }).catch(e => {
@@ -187,4 +187,6 @@ for (const tab of tabs) {
 
 }
 // add our map of elements to the main table.
+
+
 tenantsMap.forEach( (value,key) => mainTable.append(value));
