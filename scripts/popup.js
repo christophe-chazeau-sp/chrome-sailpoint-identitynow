@@ -80,11 +80,11 @@ function writeToClipBoard(token, iconUrl, idnTenant) {
 
   navigator.clipboard.write(data).then(
     () => {
-      notifData.message = "Successfully written the token for " + idnTenant + "to the clipboard";
+      notifData.message = "Successfully written the token for " + idnTenant + " to the clipboard";
       chrome.notifications.create(notifData);
     },
     () => {
-      notifData.message = "Error when writing the token for " + idnTenant + "to the clipboard";
+      notifData.message = "Error when writing the token for " + idnTenant + " to the clipboard";
       chrome.notifications.create(notifData);
     }
   );
