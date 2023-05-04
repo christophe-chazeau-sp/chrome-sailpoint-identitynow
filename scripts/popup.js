@@ -1,6 +1,9 @@
 /*** VARIABLES ***/
 // Get the URLs we want to monitor from the manifest
 const idn_urls = chrome.runtime.getManifest().host_permissions;
+// Version
+const version = chrome.runtime.getManifest().version;
+
 // Regexp for detecting IdentityNow tabs
 const idn_regexp = /(?:http)?s?(?::\/\/)?(([\w-]+)\.identitynow(?:-demo)?\.com)(\/.*)?/
 // Get the opened IDN tabs
@@ -92,6 +95,9 @@ function writeToClipBoard(token, iconUrl, idnTenant) {
 }
 
 /*** MAIN LOGIC ***/
+// Populate static elements
+document.querySelector("#version").textContent = "Chrome extension v"+version
+
 // Loop through IDN tenants found tabs
 for (const tab of tabs) {
   // Try to determine if we are logged into this tenant

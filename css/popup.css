@@ -38,3 +38,7 @@ body {
 .errorTenant{
   background-color: rgb(240, 216, 208);
 }
+
+#version{
+  font-size:x-small;
+}
