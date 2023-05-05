@@ -1,0 +1,44 @@
+body {
+    width: 700px;
+    background-color: white;
+    font-family: Poppins;
+    color:rgb(65, 83, 100);
+    padding:30px;
+  }
+
+#idn-logo{
+  width: 200px;
+}
+
+.icon{
+  width:48px;
+  filter: grayscale(100%) ;
+  -webkit-transition : -webkit-filter 1s ease-in-out;
+  transition : -webkit-filter 1s ease-in-out;
+}
+
+.icon:hover {
+  filter: grayscale(0%) ;
+  -webkit-transition : -webkit-filter 1s ease-in-out;
+  transition : -webkit-filter 1s ease-in-out;
+  cursor:pointer;
+}
+
+.tenanticon {
+  max-width:240px;
+  max-height:48px;
+}
+
+#main-table tr:hover{
+  border-color:  rgba(82,168,236, 0.8);
+  box-shadow: 0 0px 0px rgba(82,168,236,.8) inset, 0 0 8px rgba(82,168,236,.8);
+  background-color: #f4f6f8;
+}
+
+.errorTenant{
+  background-color: rgb(240, 216, 208);
+}
+
+#version{
+  font-size:x-small;
+}

@@ -5,26 +5,26 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/popup.css" />
+  <link rel="stylesheet" href="css/api.css" />
 
 
-  <link href="https://fonts.googleapis.com/css?family=Poppins:ital:100,200,300,400,500,600,700,800,900" rel="stylesheet"
-    class="custom-zh-fonts">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:ital:100,200,300,400,500,600,700,800,900" 
+        rel="stylesheet"
+        class="custom-zh-fonts">
 
   <!-- Bootstrap CSS  -->
   <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap JS -->
   <script src="scripts/bootstrap/bootstrap.min.js"></script>
   <!-- popup JS -->
-  <script src="scripts/popup.js" type="module"></script>
-
+  <script src="scripts/api.js" type="module"></script>
 </head>
 
 <body>
 
   <!-- NavBar -->
   <nav class="navbar navbar-expand-lg border-bottom mb-3 border-primary border-5">
-    <img id="idn-logo" class="navbar-brand" src="images/IDNLogo.svg"> <span id=version></span>
+    <img id="tenantlogo" class="navbar-brand">
   </nav>
 
   <!-- Main Table -->
@@ -41,26 +41,7 @@
 
       </tr>
     </thead>
-    <tbody id="main-table">
-
-      <template id="template">
-
-        <tr>
-          <td class="text-center align-middle">
-            <img class="tenanticon">
-          </td>
-          <td class="text-left align-middle">
-            <h3 class="idntenant"></h3>
-            <span class="idnuser rounded-pill badge bg-secondary"></span>
-            <span class="idnurl rounded-pill badge bg-light text-dark"></span>
-          </td>
-          <td class="text-center align-middle">
-            <img src="images/icons/access.svg" class="get_access_token icon">
-          </td>
-          <td class="text-center align-middle">
-            <img src="images/icons/access.svg" class="courrier icon">
-          </td>
-        </tr>
+    <tbody id="main-table">      
 
       </template>
     </tbody>

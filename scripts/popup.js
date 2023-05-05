@@ -142,14 +142,12 @@ for (const tab of tabs) {
 
       // Create the "Access Token" Button
       let button_access_token = element.querySelector(".get_access_token");
-
       button_access_token.textContent = "Copy Access Token";
       button_access_token.setAttribute("data-tabid", tab.id);
       button_access_token.setAttribute("data-idnurl", idnUrl);
       button_access_token.setAttribute("data-idntenant", idnTenant);
       button_access_token.setAttribute("data-idnapiurl", getAPIURL(idnUrl));
-
-      // Add its event listener to copy the access token to the clipboard
+      // Add the event listener to copy the access token to the clipboard
       button_access_token.addEventListener("click", async (event) => {
         let token_url = "https://" + event.target.dataset.idnurl + "/ui/session";
         fetch(token_url)
@@ -165,7 +163,20 @@ for (const tab of tabs) {
           }).catch(e => {
             console.log(e);
           });
-      })
+      }) ;
+
+      // Create the "Courrier" Button
+      let button_courrier = element.querySelector(".courrier");
+      button_courrier.textContent = "Copy Access Token";
+      button_courrier.setAttribute("data-idnapiurl", getAPIURL(idnUrl));
+      button_courrier.setAttribute("data-idnuser", tenantInfo.userName);
+      button_courrier.setAttribute("data-tenantlogo", tenantInfo.orgStandardLogoUrl);
+      button_courrier.setAttribute("data-idntenant", tenantInfo.orgProductName);
+      // Add the event listener to copy the access token to the clipboard
+      button_courrier.addEventListener("click", async (event) => {
+        window.location = "api.html?api_url="+event.target.dataset.idnapiurl+"&api_user="+event.target.dataset.idnuser+"&tenantlogo="+event.target.dataset.tenantlogo+"&tenantname="+event.target.dataset.idntenant ;
+      }) ;
+
       // Add this to the hash
       // the idnUrl is used as a key to avoid duplicates
       tenantsMap.set(idnUrl,element) ;
