@@ -14,6 +14,18 @@ const tenantName = urlSearch.get("tenantName");
 const tenantLogo = urlSearch.get("tenantLogo");
 // Access Token
 let accessToken;
+// JSON Editor for Response container
+const responseJSONContainer = document.getElementById("responseJSON") ;
+// JSON Editor for Response options
+const optionsResponseJSONEditor = {
+    modes:['preview','view'],
+    mode: 'code',
+    name:"IDN",
+    indentation:2
+} ;
+// JSON Editor for Response
+const responseJSONEditor = new JSONEditor(responseJSONContainer, optionsResponseJSONEditor) ;
+responseJSONEditor.set({"response":"will be displayed here"}) ;
 
 /*** FUNCTIONS ***/
 async function apiCall() {
@@ -31,11 +43,10 @@ async function apiCall() {
             headers: authorizationHeaders
         });
         const responseJson = await response.json();
-        alert("yeay : "+JSON.stringify(responseJson)) ;
-        
+        responseJSONEditor.set(responseJson) ;  
     }
     catch (exceptionVar) {
-        console.log("IdentityNow Extension : There was an errorwhen performing request : " + exceptionVar) ;
+        console.log("IdentityNow Extension : There was an error when performing a request : " + exceptionVar) ;
     }
 
 }

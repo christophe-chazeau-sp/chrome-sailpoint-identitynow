@@ -5,11 +5,17 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+
+  <!-- Our css-->
   <link rel="stylesheet" href="css/api.css" />
 
-  <link href="https://fonts.googleapis.com/css?family=Poppins:ital:100,200,300,400,500,600,700,800,900" 
-        rel="stylesheet"
-        class="custom-zh-fonts">
+  <!-- JSONEditor-->
+  <link href="css/jsoneditor/jsoneditor.min.css" rel="stylesheet" type="text/css">
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:ital:100,200,300,400,500,600,700,800,900" rel="stylesheet"
+    class="custom-zh-fonts">
 
   <!-- Popper JS (Required for bootstrap)-->
   <script src="scripts/popper/popper.min.js"></script>
@@ -17,6 +23,10 @@
   <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap JS -->
   <script src="scripts/bootstrap/bootstrap.min.js"></script>
+
+  <!-- JSON Editor-->
+  <script src="scripts/jsoneditor/jsoneditor.min.js"></script>
+
   <!-- API JS -->
   <script src="scripts/api.js" type="module"></script>
 </head>
@@ -26,24 +36,27 @@
   <!-- NavBar -->
   <nav class="navbar navbar-expand-lg border-bottom mb-3 border-primary border-5">
     <a href="popup.html"><img id="home" class="icon" class="navbar-brand" src="images/icons/home.svg"></a>
-    <h1></hA>API</h1>
+    <h1>
+      </hA>API</h1>
     <img id="tenantLogo" class="tenantLogo" class="navbar-brand">
   </nav>
-  <div class="dropdown">
-    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Method
-    </a>
-  
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">GET</a></li>
-      <li><a class="dropdown-item" href="#">POST</a></li>      
-    </ul>
+  <div id="requestBar" class="d-flex flex-row bd-highlight mb-3">
+    <div class="dropdown p-2">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Method
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">GET</a></li>
+        <li><a class="dropdown-item" href="#">POST</a></li>
+      </ul>
+    </div>
+    <span id="method" data-method="get" class="p-2">GET</span>
+    <input type="text" id="endpointInput">
+    <button id="sendButton" class="p-3">Send</button>
   </div>
-  <span id="method" data-method="get">GET</span>
-  <input type="text" id="endpointInput">
-  <button id="sendButton">Send</button>
-  <textarea></textarea>
-  
+  <div id="responseJSON"></div>
+
 </body>
 
 </html>
