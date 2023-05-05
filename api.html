@@ -7,16 +7,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/api.css" />
 
-
   <link href="https://fonts.googleapis.com/css?family=Poppins:ital:100,200,300,400,500,600,700,800,900" 
         rel="stylesheet"
         class="custom-zh-fonts">
 
+  <!-- Popper JS (Required for bootstrap)-->
+  <script src="scripts/popper/popper.min.js"></script>
   <!-- Bootstrap CSS  -->
   <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap JS -->
   <script src="scripts/bootstrap/bootstrap.min.js"></script>
-  <!-- popup JS -->
+  <!-- API JS -->
   <script src="scripts/api.js" type="module"></script>
 </head>
 
@@ -24,29 +25,25 @@
 
   <!-- NavBar -->
   <nav class="navbar navbar-expand-lg border-bottom mb-3 border-primary border-5">
-    <img id="tenantlogo" class="navbar-brand">
+    <a href="popup.html"><img id="home" class="icon" class="navbar-brand" src="images/icons/home.svg"></a>
+    <h1></hA>API</h1>
+    <img id="tenantLogo" class="tenantLogo" class="navbar-brand">
   </nav>
-
-  <!-- Main Table -->
-  <table class="table table-bordered">
-    <thead class="table-secondary">
-      <tr>
-        <th class="text-center align-middle" scope="col">Icon</th>
-        <th scope="col" class="align-middle">Tenant</br>
-          <span class="idnuser rounded-pill badge bg-secondary">user</span>
-          <span class="idnurl rounded-pill badge bg-light text-dark">url</span>
-        </th>
-        <th class="text-center align-middle" scope="col">Token</th>
-        <th class="text-center align-middle" scope="col">Courrier</th>
-
-      </tr>
-    </thead>
-    <tbody id="main-table">      
-
-      </template>
-    </tbody>
-  </table>
-
+  <div class="dropdown">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Method
+    </a>
+  
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">GET</a></li>
+      <li><a class="dropdown-item" href="#">POST</a></li>      
+    </ul>
+  </div>
+  <span id="method" data-method="get">GET</span>
+  <input type="text" id="endpointInput">
+  <button id="sendButton">Send</button>
+  <textarea></textarea>
+  
 </body>
 
 </html>

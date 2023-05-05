@@ -13,7 +13,8 @@
     "https://*.identitynow-demo.com/*"
   ],
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_title": "SailPoint IdentityNow"
   },
   "permissions": [
     "contextMenus",

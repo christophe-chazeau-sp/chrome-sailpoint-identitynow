@@ -168,13 +168,15 @@ for (const tab of tabs) {
       // Create the "Courrier" Button
       let button_courrier = element.querySelector(".courrier");
       button_courrier.textContent = "Copy Access Token";
+      button_courrier.setAttribute("data-tenantUrl", idnUrl);
       button_courrier.setAttribute("data-idnapiurl", getAPIURL(idnUrl));
       button_courrier.setAttribute("data-idnuser", tenantInfo.userName);
       button_courrier.setAttribute("data-tenantlogo", tenantInfo.orgStandardLogoUrl);
       button_courrier.setAttribute("data-idntenant", tenantInfo.orgProductName);
       // Add the event listener to copy the access token to the clipboard
       button_courrier.addEventListener("click", async (event) => {
-        window.location = "api.html?api_url="+event.target.dataset.idnapiurl+"&api_user="+event.target.dataset.idnuser+"&tenantlogo="+event.target.dataset.tenantlogo+"&tenantname="+event.target.dataset.idntenant ;
+        const tenantInfo = event.target.dataset;
+        window.location = "api.html?idnurl="+tenantInfo.tenanturl+"&apiUrl="+tenantInfo.idnapiurl+"&apiUser="+tenantInfo.idnuser+"&tenantLogo="+tenantInfo.tenantlogo+"&tenantName="+tenantInfo.idntenant ;
       }) ;
 
       // Add this to the hash
