@@ -19,8 +19,9 @@ const responseJSONContainer = document.getElementById("responseJSON") ;
 // JSON Editor for Response options
 const optionsResponseJSONEditor = {
     modes:['preview','view'],
-    mode: 'code',
-    name:"IDN",
+    mode: 'view',
+
+    name:tenantName,
     indentation:2
 } ;
 // JSON Editor for Response
@@ -66,6 +67,7 @@ async function getAccessToken(){
 
 /*** MAIN LOGIC ***/
 document.querySelector("#tenantLogo").src = tenantLogo;
-document.querySelector("#sendButton").addEventListener("click", async (event) => {
+document.querySelector("#APIRequestForm").addEventListener("submit", async (event) => {
+    event.preventDefault();
     await apiCall();
 });

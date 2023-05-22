@@ -40,21 +40,23 @@
       </hA>API</h1>
     <img id="tenantLogo" class="tenantLogo" class="navbar-brand">
   </nav>
-  <div id="requestBar" class="d-flex flex-row bd-highlight mb-3">
-    <div class="dropdown p-2">
-      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-        aria-expanded="false">
-        Method
-      </a>
+  <form id="APIRequestForm">
+    <div id="requestBar" class="input-group d-flex flex-row bd-highlight mb-6">
+      <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+        aria-expanded="false">Method</button>
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="#">GET</a></li>
         <li><a class="dropdown-item" href="#">POST</a></li>
       </ul>
+      <label class="input-group-text" for="inputGroupSelect01">GET</label>
+      <input class="form-control" placeholder="type your endpoint here" type="text" id="endpointInput" required>
+      <div class="invalid-feedback">
+        Please Input a valid endpoint
+      </div>
+      <button id="sendButton" class="btn btn-outline-secondary" type="submit">Request</button>
     </div>
-    <span id="method" data-method="get" class="p-2">GET</span>
-    <input type="text" id="endpointInput">
-    <button id="sendButton" class="p-3">Send</button>
-  </div>
+  </form>
+  <hr>
   <div id="responseJSON"></div>
 
 </body>

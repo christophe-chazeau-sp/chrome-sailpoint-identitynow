@@ -165,16 +165,16 @@ for (const tab of tabs) {
           });
       }) ;
 
-      // Create the "Courrier" Button
-      let button_courrier = element.querySelector(".courrier");
-      button_courrier.textContent = "Copy Access Token";
-      button_courrier.setAttribute("data-tenantUrl", idnUrl);
-      button_courrier.setAttribute("data-idnapiurl", getAPIURL(idnUrl));
-      button_courrier.setAttribute("data-idnuser", tenantInfo.userName);
-      button_courrier.setAttribute("data-tenantlogo", tenantInfo.orgStandardLogoUrl);
-      button_courrier.setAttribute("data-idntenant", tenantInfo.orgProductName);
+      // Create the "API" Button
+      let button_api = element.querySelector(".api");
+      button_api.textContent = "Copy Access Token";
+      button_api.setAttribute("data-tenantUrl", idnUrl);
+      button_api.setAttribute("data-idnapiurl", getAPIURL(idnUrl));
+      button_api.setAttribute("data-idnuser", tenantInfo.userName);
+      button_api.setAttribute("data-tenantLogo", tenantInfo.orgStandardLogoUrl);
+      button_api.setAttribute("data-idntenant", tenantInfo.orgProductName);
       // Add the event listener to copy the access token to the clipboard
-      button_courrier.addEventListener("click", async (event) => {
+      button_api.addEventListener("click", async (event) => {
         const tenantInfo = event.target.dataset;
         window.location = "api.html?idnurl="+tenantInfo.tenanturl+"&apiUrl="+tenantInfo.idnapiurl+"&apiUser="+tenantInfo.idnuser+"&tenantLogo="+tenantInfo.tenantlogo+"&tenantName="+tenantInfo.idntenant ;
       }) ;
